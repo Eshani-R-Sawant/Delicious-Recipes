@@ -1,0 +1,10 @@
+use("Deliciously");
+
+
+db.recipes.deleteMany( { title: "Green Garlic Salad Recipe" } )
+
+
+
+
+
+

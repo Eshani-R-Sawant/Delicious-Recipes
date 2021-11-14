@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="/css/{{ style }}.css" />
+
+  <title>my cart</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <a class="navbar-brand" href="/home"
+      style="font-family: 'Dancing Script', cursive; letter-spacing: 0.1em;font-size:2em">
+      Deliciously
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item ">
+          <a class="nav-link  btn btn-outline-light" href="/add" id="addBtn">
+            <i class="fas fa-plus"></i> Add Recipe</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="/home">Home<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/collection">My Collection</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="/recipes">Recipes</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            {{!--
+            <img src="/assets/person.jpeg" alt="" class="img-thumbnail" />
+            --}}Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <section class="page-top-section ">
+    <img src="./assets/page-top-bg.jpg" alt="" />
+    <div class="container mt-5">
+      <h2 class="card-img-overlay " style="color:white">
+        My Cart
+      </h2>
+    </div>
+  </section>
+  <section class="container-fluid">
+    <div class="row m-2">
+      {{#each collection}}
+      <div class="col-md-4 col-sm-6">
+        <div class="card text-left mb-5" id="card-deck">
+          <img class="card-img-top round-image" src="{{this.image}}" alt="" />
+          <div class="card-body text-center">
+            <h4 class="card-title">{{ this.title }}</h4>
+            <h4 class="card-title">Price of all ingredients={{ this.preptime }}</h4>
+            <p class="card-text" id="description"> {{ this.description }}</p>
+          </div>
+          <p class="text-center" id="viewButton"> <a href="/recipe/{{ this._id}}"
+              class="btn btn-danger hvr-curl-top-left">View Recipe</a></p>
+
+
+        </div>
+      </div>
+      {{/each}}
+    </div>
+
+
+  </section>
+
+
+
+</html>
+<div>
+  <button style=" transition-duration: 0.4s;background-color: #4CAF50;
+  color: white; position: absolute;
+  right: 800px;
+  width: 100px;
+  height: 90px;">Proceed To Checkout</button>
+  <br>
+</div>
